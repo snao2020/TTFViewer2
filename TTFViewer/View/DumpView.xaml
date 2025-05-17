@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="TTFViewer.View.DumpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ie="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:local="clr-namespace:TTFViewer.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             KeyboardNavigation.TabNavigation="Once"
+             >
+
+    <UserControl.Resources>
+        <local:DumpLineMetrics x:Key="DumpLineMetrics"/>
+        <local:SelectedRange x:Key="SelectedRange"/>
+    </UserControl.Resources>
+
+    <i:Interaction.Behaviors>
+        <local:DumpViewBehavior/>
+    </i:Interaction.Behaviors>
+
+    <Grid>
+        <local:MySelector Focusable="False" x:Name="MySelector"
+                          ItemsSource="{Binding DumpViewModel.List}"
+                          ScrollViewer.CanContentScroll="True"
+                          VirtualizingPanel.IsVirtualizing="True"
+                          VirtualizingPanel.VirtualizationMode="Recycling"
+                          VirtualizingPanel.CacheLength="1,1"
+                          VirtualizingPanel.CacheLengthUnit="Item">
+            
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <ScrollViewer Focusable="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:DumpItemView/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </local:MySelector>
+    </Grid>
+</UserControl>

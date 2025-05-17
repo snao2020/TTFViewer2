@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{957750AE-5F43-44D9-9DF1-57C63476B361}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TTFViewer</RootNamespace>
+    <AssemblyName>TTFViewer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEBUG_CFFCTOR2, SLOW</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataTypes\Attrs\AttributeCommon.cs" />
+    <Compile Include="DataTypes\Attrs\DisplayAttributes.cs" />
+    <Compile Include="DataTypes\Attrs\GroupAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\VerificationAttribute.cs" />
+    <Compile Include="DataTypes\IItemValueService.cs" />
+    <Compile Include="ViewModel\ProxyAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\TypeAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\CountAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\ElementListAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\OffsetsAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\ClassAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\UniformTypeAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\ValuesAttribute.cs" />
+    <Compile Include="DataTypes\DICTOperators.cs" />
+    <Compile Include="DataTypes\PrimitiveReader.cs" />
+    <Compile Include="DataTypes\ValueHelper.cs" />
+    <Compile Include="Loaders\AttrReader\AttributeCommon2.cs" />
+    <Compile Include="Loaders\AttrReader\ValuesAttributeReader.cs" />
+    <Compile Include="Loaders\AttrReader\ClassValueReader.cs" />
+    <Compile Include="Loaders\ElementList\ValuesElementList.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\CharstringElementList.cs" />
+    <Compile Include="Loaders\ElementList\DiscreteList.cs" />
+    <Compile Include="Loaders\AttrReader\ClassAttributeReader.cs" />
+    <Compile Include="Loaders\AttrReader\OffsetsAttributeReader.cs" />
+    <Compile Include="Tables\Bitmap\BitmapInfo.cs" />
+    <Compile Include="Tables\Bitmap\BitmapDataElementList.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\CharstringReader.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\CharstringStack.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\CharstringDispatchHelper.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\SubrSelector.cs" />
+    <Compile Include="Loaders\ElementList\GroupElementList.cs" />
+    <Compile Include="Loaders\LoadItem2.cs" />
+    <Compile Include="Loaders\LoadItemHelper.cs" />
+    <Compile Include="Loaders\AttrReader\CountAttributeReader.cs" />
+    <Compile Include="Loaders\AttrReader\ContainerReader.cs" />
+    <Compile Include="DataTypes\Attrs\LengthAttribute.cs" />
+    <Compile Include="DataTypes\Attrs\PositionAttribute.cs" />
+    <Compile Include="Loaders\ElementList\VariableElementList.cs" />
+    <Compile Include="DataTypes\FixedPoint_16_16.cs" />
+    <Compile Include="DataTypes\IElementList.cs" />
+    <Compile Include="Loaders\ElementList\OffsetsElementList.cs" />
+    <Compile Include="Loaders\ElementList\UniformElementList.cs" />
+    <Compile Include="FileDialog\DirectoryBar.xaml.cs">
+      <DependentUpon>DirectoryBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileDialog\Drives.cs" />
+    <Compile Include="FileDialog\FileDialog.xaml.cs">
+      <DependentUpon>FileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Loaders\AttrReader\LengthAttributeReader.cs" />
+    <Compile Include="Loaders\AttrReader\PositionAttributeReader.cs" />
+    <Compile Include="Loaders\AttrReader\TypeSelectAttributeReader.cs" />
+    <Compile Include="Loaders\BinaryLoader.cs" />
+    <Compile Include="Loaders\AttrReader\AttributeHelper2.cs" />
+    <Compile Include="Loaders\AttrReader\FieldValueReader.cs" />
+    <Compile Include="Model\ChildParam.cs" />
+    <Compile Include="Loaders\PathValueReader.cs" />
+    <Compile Include="Loaders\TableLoadHelper.cs" />
+    <Compile Include="Loaders\AttrReader\TableAttributeReader.cs" />
+    <Compile Include="DataTypes\TablePathHelper.cs" />
+    <Compile Include="DataTypes\TypeHelper.cs" />
+    <Compile Include="Loaders\AttrReader\VerificationAttributeReader.cs" />
+    <Compile Include="DataTypes\VirtualizingList.cs" />
+    <Compile Include="Tables\Bitmap\GlyphBitmatLocation.cs" />
+    <Compile Include="DataTypes\Attrs\AttributeHelper.cs" />
+    <Compile Include="DataTypes\Attrs\TableAttribute.cs" />
+    <Compile Include="DataTypes\TableModelFlags.cs" />
+    <Compile Include="Tables\Bitmap\GlyphBitmapData.cs" />
+    <Compile Include="Tables\Colors\PaintTable.cs" />
+    <Compile Include="Tables\File Headers\TableDirectory.cs" />
+    <Compile Include="Tables\File Headers\TTCHeader.cs" />
+    <Compile Include="Tables\Layout\GPOSs\GPOSShared.cs" />
+    <Compile Include="Tables\Layout\GSUBs\AlternateSubst.cs" />
+    <Compile Include="Tables\Layout\GSUBs\SubstExtension.cs" />
+    <Compile Include="Tables\Layout\GSUBs\LigatureSubst.cs" />
+    <Compile Include="Tables\Layout\GSUBs\MultipleSubst.cs" />
+    <Compile Include="Tables\Layout\GSUBs\ReverseChainSingleSubst.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\ChainedSequenceContextTable.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\ClassDef.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\CoverageTable.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\DeviceAndVariationIndex.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\FeatureListTable.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\LookupListTable.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\ScriptListTable.cs" />
+    <Compile Include="Tables\Layout\LayoutCommonTables\SequenceContextTable.cs" />
+    <Compile Include="Tables\Layout\GPOSs\CursivePos.cs" />
+    <Compile Include="Tables\Layout\GPOSs\PosExtension.cs" />
+    <Compile Include="Tables\Layout\GPOSs\MarkBasePos.cs" />
+    <Compile Include="Tables\Layout\GPOSs\MarkLigPos.cs" />
+    <Compile Include="Tables\Layout\GPOSs\MarkMarkPos.cs" />
+    <Compile Include="Tables\Layout\GPOSs\PairPos.cs" />
+    <Compile Include="Tables\Layout\GSUBs\SingleSubst.cs" />
+    <Compile Include="Tables\Layout\GPOSs\SinglePos.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFF2s\CFF2.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFF2s\CFF2VariationStore.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFs\CFF.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFs\CFFCharsets.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\Charstring.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\CFFHelper.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\DICT.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFs\CFFEncodings.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\FDSelect.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\TokenHelper.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\CFFCommon\INDEX.cs" />
+    <Compile Include="Tables\Tables Related to CFF Outlines\VORG.cs" />
+    <Compile Include="Tables\Variations\VariationCommon.cs" />
+    <Compile Include="Tables\Variations\avar.cs" />
+    <Compile Include="Tables\Layout\BASE.cs" />
+    <Compile Include="Tables\Required Tables\cmap.cs" />
+    <Compile Include="Tables\Tables Related to TrueType Outlines\cvt.cs" />
+    <Compile Include="Tables\Other OpenType Tables\DSIG.cs" />
+    <Compile Include="Tables\Bitmap\EBDT.cs" />
+    <Compile Include="Tables\Bitmap\EBLC.cs" />
+    <Compile Include="Tables\Bitmap\EBSC.cs" />
+    <Compile Include="Tables\Tables Related to TrueType Outlines\fpgm.cs" />
+    <Compile Include="Tables\Tables Related to TrueType Outlines\gasp.cs" />
+    <Compile Include="Tables\Tables Related to TrueType Outlines\glyf.cs" />
+    <Compile Include="Tables\Required Tables\head.cs" />
+    <Compile Include="Tables\Required Tables\hhea.cs" />
+    <Compile Include="Tables\Required Tables\hmtx.cs" />
+    <Compile Include="Tables\Tables Related to TrueType Outlines\loca.cs" />
+    <Compile Include="Tables\Required Tables\maxp.cs" />
+    <Compile Include="Tables\Required Tables\name.cs" />
+    <Compile Include="Tables\Required Tables\OS2.cs" />
+    <Compile Include="Tables\Required Tables\post.cs" />
+    <Compile Include="Tables\Tables Related to TrueType Outlines\prep.cs" />
+    <Compile Include="Tables\Variations\STAT.cs" />
+    <Compile Include="Tables\Table Related to SVG Outlines\SVG.cs" />
+    <Compile Include="Tables\Bitmap\CBDT.cs" />
+    <Compile Include="Tables\Bitmap\CBLC.cs" />
+    <Compile Include="Tables\Colors\COLR.cs" />
+    <Compile Include="Tables\Colors\CPAL.cs" />
+    <Compile Include="Tables\Variations\cvar.cs" />
+    <Compile Include="Tables\Variations\fvar.cs" />
+    <Compile Include="Tables\Layout\GDEF.cs" />
+    <Compile Include="Tables\Layout\GPOSs\GPOS.cs" />
+    <Compile Include="Tables\Layout\GSUBs\GSUB.cs" />
+    <Compile Include="Tables\Variations\gvar.cs" />
+    <Compile Include="Tables\Other OpenType Tables\hdmx.cs" />
+    <Compile Include="Tables\Variations\HVAR.cs" />
+    <Compile Include="Tables\Layout\JSTF.cs" />
+    <Compile Include="Tables\Other OpenType Tables\kern.cs" />
+    <Compile Include="Tables\Other OpenType Tables\LTSH.cs" />
+    <Compile Include="Tables\Layout\MATH.cs" />
+    <Compile Include="Tables\Other OpenType Tables\MERG.cs" />
+    <Compile Include="Tables\Other OpenType Tables\meta.cs" />
+    <Compile Include="Tables\Variations\MVAR.cs" />
+    <Compile Include="Tables\Other OpenType Tables\PCLT.cs" />
+    <Compile Include="Tables\Bitmap\sbix.cs" />
+    <Compile Include="Tables\Variations\VVAR.cs" />
+    <Compile Include="Tables\Other OpenType Tables\vmtx.cs" />
+    <Compile Include="Tables\Other OpenType Tables\vhea.cs" />
+    <Compile Include="Tables\Other OpenType Tables\VDMX.cs" />
+    <Compile Include="GuiMisc\SysMenuHook.cs" />
+    <Compile Include="Loaders\TableLoader.cs" />
+    <Compile Include="Model\TableModelHelper.cs" />
+    <Compile Include="ViewModel\CFFItemViewModel.cs" />
+    <Compile Include="ViewModel\FileSegmentViewModel.cs" />
+    <Compile Include="ViewModel\ItemValueHelper.cs" />
+    <Compile Include="ViewModel\ItemValueProvider.cs" />
+    <Compile Include="ViewModel\ProxyTable.cs" />
+    <Compile Include="ViewModel\ViewModelHelper.cs" />
+    <Compile Include="View\DumpLineMetrics.cs" />
+    <Compile Include="Model\DumpModel.cs" />
+    <Compile Include="ViewModel\DumpItemViewModel.cs" />
+    <Compile Include="ViewModel\DumpViewModel.cs" />
+    <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\ItemViewModelHelper.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="Tables\Common Classes\GlyphInstruction.cs" />
+    <Compile Include="ViewModel\TTFViewModel.cs" />
+    <Compile Include="View\DumpGridViewBehavior.cs" />
+    <Compile Include="View\DumpGridView.xaml.cs">
+      <DependentUpon>DumpGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DumpItemView.xaml.cs">
+      <DependentUpon>DumpItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DumpItemViewBehavior.cs" />
+    <Compile Include="View\DumpView.xaml.cs">
+      <DependentUpon>DumpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DumpViewBehavior.cs" />
+    <Compile Include="View\FileSegmentView.xaml.cs">
+      <DependentUpon>FileSegmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrameViewBehavior.cs" />
+    <Compile Include="View\Selection.cs" />
+    <Compile Include="View\SelectPathDialog.xaml.cs">
+      <DependentUpon>SelectPathDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TTFTreeView.xaml.cs">
+      <DependentUpon>TTFTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrameView.xaml.cs">
+      <DependentUpon>FrameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TTFTreeViewBehavior.cs" />
+    <Compile Include="View\TTFViewBehavior.cs" />
+    <Compile Include="WindowsHooks\WindowsHookBehavior.cs" />
+    <Compile Include="WindowsHooks\WindowsHookProc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GuiMisc\CalcComboWidthExtension.cs" />
+    <Compile Include="GuiMisc\FontConverters.cs" />
+    <Compile Include="GuiMisc\FontMenuBehavior.cs" />
+    <Compile Include="GuiMisc\FontResetExtension.cs" />
+    <Compile Include="GuiMisc\ResourceKeySetting.cs" />
+    <Compile Include="GuiMisc\ResourceValueProvider.cs" />
+    <Compile Include="GuiMisc\SettingsManager.cs" />
+    <Compile Include="GuiMisc\WindowPlacement.cs" />
+    <Compile Include="DataTypes\CommonTables.cs" />
+    <Compile Include="Model\TableModel.cs" />
+    <Compile Include="Model\TTFModel.cs" />
+    <Compile Include="DataTypes\Primitives.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="FileDialog\DirectoryBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FileDialog\FileDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DumpGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DumpItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DumpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FileSegmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectPathDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TTFTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FrameView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Win32\Win32.csproj">
+      <Project>{33cb6d00-c581-408b-8195-e8e238e11255}</Project>
+      <Name>Win32</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

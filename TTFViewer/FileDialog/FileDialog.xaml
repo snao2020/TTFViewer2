@@ -1,0 +1,87 @@
+﻿<Window x:Class="FileDialogSample.FileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileDialogSample"
+        mc:Ignorable="d"
+        SourceInitialized="Window_SourceInitialized"
+        Closing="Window_Closing"
+        Loaded="Window_Loaded"
+        Unloaded="Window_Unloaded"
+        Title="FileDialog" Height="300" Width="300">
+    
+    <Window.Resources>
+        <local:FilterConverter x:Key="FilterConverter"/>
+        <local:FileListConverter x:Key="FileListConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text=""/>
+        
+        <local:DirectoryBar Grid.Row="1" Directory="{Binding RelativeSource={RelativeSource AncestorType=local:FileDialog},Path=Directory,Mode=TwoWay}"/>
+        
+        <Menu Grid.Row="2" Background="Transparent" IsMainMenu="False">
+            <MenuItem ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=local:FileDialog},Path=Filters}">
+                <MenuItem.ItemContainerStyle>
+                    <Style TargetType="MenuItem">
+                        <EventSetter Event="Click" Handler="ExtensionMenuItem_Click"/>
+                    </Style>
+                </MenuItem.ItemContainerStyle>
+                <MenuItem.Header>
+                    <MultiBinding Converter="{StaticResource FilterConverter}">
+                        <Binding RelativeSource="{RelativeSource AncestorType=local:FileDialog}" Path="Filters"/>
+                        <Binding RelativeSource="{RelativeSource AncestorType=local:FileDialog}" Path="FilterIndex"/>
+                    </MultiBinding>
+                </MenuItem.Header>
+            </MenuItem>
+        </Menu>
+        
+        <ListBox Grid.Row="3" Name="FileListBox" SelectionChanged="FileListBox_SelectionChanged">
+            <ListBox.ItemsSource>
+                <MultiBinding Converter="{StaticResource FileListConverter}">
+                    <Binding RelativeSource="{RelativeSource AncestorType=local:FileDialog}" Path="Directory"/>
+                    <Binding RelativeSource="{RelativeSource AncestorType=local:FileDialog}" Path="Filters"/>
+                    <Binding RelativeSource="{RelativeSource AncestorType=local:FileDialog}" Path="FilterIndex"/>
+                </MultiBinding>
+            </ListBox.ItemsSource>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="FileListBoxItem_MouseDoubleClick"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Grid Margin="0, 10, 0, 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Ok" Click="OkButton_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=local:FileDialog},Path=FileInfo}" Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Grid.Column="2" Content="Cancel" Click="CancelButton_Click"/>
+            </Grid>
+        </StackPanel>
+        <TextBlock Grid.Row="5" Text="{Binding RelativeSource={RelativeSource AncestorType=local:FileDialog},Path=FileInfo.FullName}"/>
+    </Grid>
+</Window>

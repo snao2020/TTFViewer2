@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="FileDialogSample.DirectoryBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FileDialogSample"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             Unloaded="UserControl_Unloaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <local:FullPathListConverter x:Key="FullPathListConverter"/>
+        <local:SubDirectoryListConverter x:Key="SubDirectoryListConverter"/>
+    </UserControl.Resources>
+
+    <Menu Name="DirectoryMenu" Background="Transparent" IsMainMenu="False"
+          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=local:DirectoryBar},Path=Directory,Converter={StaticResource FullPathListConverter}}">
+
+        <Menu.ItemContainerStyle>
+            <Style TargetType="MenuItem">
+
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="-20,0,-50,0"/>
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter Property="ItemsSource">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource SubDirectoryListConverter}">
+                            <Binding RelativeSource="{RelativeSource Self}" Path="IsSubmenuOpen"/>
+                            <Binding RelativeSource="{RelativeSource Self}" Path="DataContext"/>
+                        </MultiBinding>
+
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </Menu.ItemContainerStyle>
+
+        <Menu.ItemTemplate>
+            <HierarchicalDataTemplate>
+                <HierarchicalDataTemplate.ItemContainerStyle>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="ItemsSource" Value="{x:Null}"/>
+                        <Setter Property="Tag" Value="{Binding RelativeSource={RelativeSource AncestorType=MenuItem}}"/>
+                        <!-->
+                        Default behavior(StaysOpenOnClick=false)
+                            in MenuItem.Click handler
+                            IsSubmenuOpen = false
+                            that changes parentMenuItem.ItemsSource to null
+                            then MenuItem.DataContext is invalid
+                        So, set StaysOpenOnClick to true
+                            that MenuItem.DataContext will be valid 
+                            in MenuItem.Click handler
+                            * Set parentMenuitem.IsSubmenuOpen to true in MenuItem.Click handler
+                        <-->
+                        <Setter Property="StaysOpenOnClick" Value="True"/>
+                        <EventSetter Event="Click" Handler="MenuItem_Click"/>
+                    </Style>
+                </HierarchicalDataTemplate.ItemContainerStyle>
+                <TextBlock Text="{Binding TypeName}"/>
+            </HierarchicalDataTemplate>
+        </Menu.ItemTemplate>
+    </Menu>
+</UserControl>

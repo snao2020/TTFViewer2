@@ -1,0 +1,145 @@
+ttc batang.ttc
+        majorVerion=1,minorVersion=0, but has DSIG table
+ttf aharonbd.ttf
+otf notoSansJP-Regular.otf
+
+OS/2 aharonbd.ttf
+cmap 
+    SubtableFormat0 aharonbd.ttf
+    SubtableFormat4 aharonbd.ttf
+    SubtableFormat6 calibri.ttf
+    SubtableFormat12 cambria.ttc
+    SubtableFormat14 phagspa.ttf
+head aharonbd.ttf
+hhea aharonbd.ttf
+hmtx aharonbd.ttf
+maxp aharonbd.ttf
+name aharonbd.ttf
+post aharonbd.ttf
+
+DSIG aharonbd.ttf
+LTSH andlso.ttf
+MERG
+PCLT arial.ttf
+VDMX andlso.ttf
+hdmx andlso.ttf
+kern arial.ttf
+    ?? kerningSubtable_Format2.kerningArrayOffset ElementCount is unknown
+meta
+vhea malgun.ttf
+vmtx malgun.ttf
+
+
+cvt  aharonbd.ttf
+fpgm aharonbd.ttf
+gasp andlso.ttf
+glyf aharonbd.ttf
+    Simple
+        repeat ahronbd.ttf #35
+    Composite
+        arial.ttf #599
+loca aharonbd.ttf				
+prep aharonbd.ttf
+
+
+CBDT NotoColorEmoji_WindowsCompatible.ttf
+CBLC NotoColorEmoji_WindowsCompatible.ttf
+COLR 
+    version0 seguiemj.ttf
+    maxp.numGlyphs=14162
+    [272830,298388) length = 25b58
+    [272830,27283e) Colr
+                        numGlyphBaseRecords=3199
+                        numLlayerRecords=33812
+    [27283e,277338) BaseGlyphRecord[3199] 6*3199+24283e=277338
+    [277338,298388) LayerRecord[33812] 4*33812+277338=298388
+
+    version1 NotoColorEmoji-Regular.ttf
+CPAL 
+    version0 seguiemj.ttf
+    version1 test_glyphs-glyf_colr_1.ttf
+EBDT
+    calibri.ttf
+
+    batang.ttc   1606
+    cambria.ttc  numberOfIndexSubTables=1
+    cour.ttf     numberOfIndexSubTables=1
+    grim.ttc     1606
+    lucon.ttf    numberOfIndexSubTables=1
+    mingliu.ttc  numSizes=6,numberOfIndexSubTables=5
+    msgothic.ttc numSizes=16, numberOfIndexSubTables=10
+    msmincho.ttc numSizes=16, numberOfIndexSubTables=10
+    simsun.ttc   numSizes=5, numberOfIndexSubTables=11
+
+EBLC 
+    calibri.ttf
+    indexsubtable3 batang.ttc, indexsubtable4 calibri.ttf, idexsubtable5 msgothic.ttc, indexubtable1 simsun.ttc
+EBSC
+sbix
+
+
+BASE msgothic.ttc
+GDEF Version1.0 aharonbd.ttf
+GPOS aharonbd.ttf
+    GposLookupType Single_adjustment
+        Format1 aharongbd.ttf
+        Format2 andlso.ttf
+    GposLookupType Pair_adjustment
+        Format1 andlso.ttf
+    GposLookupType Cursive_attachment 
+    GposLookupType Mark_to_base_attachment
+        Format1 aharongbd.ttf
+    GposLookupType Mark_to_ligature_attachment
+        Format1 andlso.ttf
+    GposLookupType Mark_to_mark_attachment
+        Format1 andlso.ttf
+    GposLookupType Contextual_positioning
+    GposLookupType Chained_contexts_positioning
+        Format3 aharonbd.ttf
+    GposLookupType Positioning_extension
+
+GSUB aharonbd.ttf
+    GsubLookupType Single,
+        Format2 andlso.ttf
+    GsubLookupType Multiple
+        Format1 andlso.ttf
+    GsubLookupType Alternate
+    GsubLookupType Ligature
+        aharonbd.ttf
+    GsubLookupType Contextual_substitution
+    GsubLookupType Chained_contexts_substitution
+        Format3 aharonbd.ttf
+    GsubLookupType Substitution_extension
+    GsubLookupType Reverse_chaining_context_single
+
+JSTF arial.ttf
+MATH
+
+
+SVG  NotoColorEmoji-Regular.ttf
+CFF  NotoSansJP-Regular.otf
+CFF2 AdobeVFPrototype.otf
+VORG NotoSansJP-Regular.otf
+
+
+avar AdobeVFPrototype.otf
+cvar
+fvar AdobeVFPrototype.otf
+gvar AdobeVFPrototype.ttf
+    ?? GlyphVariationDataHeader.dataOffset ElementCount is unknown
+HVAR AdobeVFPrototype.otf,NotoEmoji-VariableFont_wght.ttf
+MVAR AdobeVFPrototype.otf
+STAT AdobeVFPrototype.otf
+VVAR NotoEmoji-VariableFont_wght.ttf
+
+bdat cour.ttf not impl
+bloc cour.ttf not impl
+edt0 georgia.ttf not impl
+MTfn trebric.ttf not impl
+FFTM 
+    
+not impl FeatureParamsTable(FeatureListTable.cs)
+not impl GlyphVariationDataHeader.dataOffset(gvar.cs)
+not impl cvarHeader_Version10.dataOffset(cvar.cs)
+
+STAT ç¨óêÇµÇ‚Ç∑Ç¢ñºëO AxisValueFormatxx / AxisValue

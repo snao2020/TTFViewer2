@@ -70,6 +70,8 @@ class TableDirectory_Version10
 Loader sets element count
 
 ### 2.Feature
- Models do not use individual table informations and ViewModels also do not use them.Models read table values from given table type using Attribute and ViewModels display their values using Attributes.
+ Models do not use individual table informations and ViewModels also do not use them. Models read table values from given table type using Attribute and ViewModels display their values using Attributes.
 
  Tables are Annotated using Attribute. I think this format improve readabilities.
+
+see files in TTFViewer/DataTypes/Attrs, TTFViewer/Tables directories

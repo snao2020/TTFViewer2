@@ -75,3 +75,15 @@ Loader sets element count
  Tables are Annotated using Attribute. I think this format improve readabilities.
 
 See files in TTFViewer/DataTypes/Attrs, TTFViewer/Tables directories
+
+### 3.Blog (in japanese)
+http://blog.livedoor.jp/oans/archives/62352548.html
+
+http://blog.livedoor.jp/oans/archives/62365270.html
+
+http://blog.livedoor.jp/oans/archives/62352721.html
+
+http://blog.livedoor.jp/oans/archives/62354303.html
+
+http://blog.livedoor.jp/oans/archives/62352936.html
+

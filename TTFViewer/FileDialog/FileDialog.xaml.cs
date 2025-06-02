@@ -236,7 +236,8 @@ namespace FileDialogSample
                 FileInfo[] files = null;
                 try
                 {
-                    files = di.EnumerateFiles().Where(file => Regex.IsMatch(file.Name, pattern)).ToArray();
+                    //files = di.EnumerateFiles().Where(file => Regex.IsMatch(file.Name, pattern)).ToArray();
+                    files = di.EnumerateFiles().Where(file => Regex.IsMatch(file.Name, pattern, RegexOptions.IgnoreCase)).ToArray();
                 }
                 catch // eat DirectoryNotFoundException, SecurityException
                 {
